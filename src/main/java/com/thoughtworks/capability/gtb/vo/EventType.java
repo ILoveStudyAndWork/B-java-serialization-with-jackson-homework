@@ -1,5 +1,7 @@
 package com.thoughtworks.capability.gtb.vo;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum EventType {
@@ -7,12 +9,13 @@ public enum EventType {
 
   private String code;
 
-  EventType(String code) {
-    this.code = code;
-  }
-
   @JsonValue
   public String getCode() {
     return code;
+  }
+
+  @JsonCreator
+  EventType(@JsonProperty("type") String code){
+    this.code = code;
   }
 }
