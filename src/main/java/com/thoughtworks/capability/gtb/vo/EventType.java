@@ -14,8 +14,7 @@ public enum EventType {
     return code;
   }
 
-  @JsonCreator
-  EventType(@JsonProperty("type") String code){
+    EventType(String code){
     this.code = code;
   }
 }
